@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
-
+            calculate();
         }
 
         @Override
@@ -31,12 +31,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //attribute declare
-    Spinner sportSpinner;
-    TextView cost, totalCost;
-    EditText kg, hr;
-    Button calBtn;
-    MainActicityListener listener;
-    double[] sportCost = {3.1, 4.4, 13.2, 9.7, 5.1, 3.7};
+    private Spinner sportSpinner;
+    private TextView cost, totalCost;
+    private EditText kg, hr;
+    private Button calBtn;
+    private MainActicityListener listener;
+    private double[] sportCost = {3.1, 4.4, 13.2, 9.7, 5.1, 3.7};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,5 +55,19 @@ public class MainActivity extends AppCompatActivity {
 
         sportSpinner.setOnItemSelectedListener(listener);
         calBtn.setOnClickListener(listener);
+    }
+
+    private void calculate() {
+        int pos = sportSpinner.getSelectedItemPosition();
+        String _kg = kg.getText().toString();
+        String _hr = hr.getText().toString();
+        double _cost = sportCost[pos];
+
+        if (_kg.isEmpty() || _kg == "." || _hr.isEmpty() || _hr == ".")
+            totalCost.setText("Please input completely");
+        else {
+            long result = Math.round(Double.parseDouble(_kg) * Double.parseDouble(_hr) * _cost);
+            totalCost.setText("Consume energy of " + result + " kcal");
+        }
     }
 }
