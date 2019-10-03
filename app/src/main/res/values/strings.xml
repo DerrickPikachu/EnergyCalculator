@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">EnergyCalculator</string>
+    <string name="cost">Cost(Kcar/kg/hr):</string>
+    <string name="input_kg">your weight(kg):</string>
+    <string name="input_hr">How much time(hr):</string>
+    <string name="calculate">calculate</string>
+    <string-array name="sports">
+        <item>walking</item>
+        <item>swimming</item>
+        <item>running</item>
+        <item>bicycling</item>
+        <item>badminton</item>
+        <item>golfing</item>
+    </string-array>
 </resources>
