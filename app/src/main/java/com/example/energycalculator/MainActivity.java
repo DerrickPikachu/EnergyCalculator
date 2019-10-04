@@ -3,6 +3,8 @@ package com.example.energycalculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -12,7 +14,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    class MainActicityListener implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+    class MainActicityListener implements View.OnClickListener, AdapterView.OnItemSelectedListener, TextWatcher {
 
         @Override
         public void onClick(View view) {
@@ -22,11 +24,27 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
             cost.setText(Double.toString(sportCost[i]));
+            calculate();
         }
 
         @Override
         public void onNothingSelected(AdapterView<?> adapterView) {
             //no use
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            //no use
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            //no use
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
         }
     }
 
